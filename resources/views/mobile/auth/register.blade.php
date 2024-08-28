@@ -106,19 +106,18 @@
                 </div>
 
                 <!-- Profile Picture Upload -->
-                <div class="input-style has-icon input-style-1 mt-4">
-                    <i class="input-icon fa fa-image color-theme"></i>
-                    <span>Profile Picture</span>
-                    <input type="file" id="profile_picture" name="profile_picture" accept="image/*"
-                        class="input" />
-                    <x-input-error :messages="$errors->get('profile_picture')" class="mt-2" />
-                </div>
+                    <div class="mt-4">
+                        <img id="image_preview" src="#" alt="Image Preview"
+                            style="display:none; width:200px; height:auto;" />
+                    </div>
+                    <div class="file-data">
+                        <input type="file"  id="profile_picture" name="profile_picture" class="upload-file bg-highlight shadow-s rounded-s " accept="image/*">
+                        <p class="upload-file-text color-white">Upload Image</p>
+                        <x-input-error :messages="$errors->get('profile_picture')" class="mt-2" />
+                    </div>
 
                 <!-- Image Preview -->
-                <div class="mt-4">
-                    <img id="image_preview" src="#" alt="Image Preview"
-                        style="display:none; width:200px; height:auto;" />
-                </div>
+
 
                     <!-- Password -->
                     <div class="input-style has-icon input-style-1 input-required mt-4">

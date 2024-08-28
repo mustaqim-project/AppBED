@@ -22,13 +22,13 @@ class RegisteredUserController extends Controller
 
         $detect = new MobileDetect();
 
-        // if ($detect->isMobile()) {
+        if ($detect->isMobile()) {
         return view('mobile.auth.register', compact('aktifitas'));
-        // } elseif ($detect->isTablet()) {
-        //     return view('mobile.auth.register', compact('aktifitas'));
-        // } else {
-        //     return view('desktop.auth.register', compact('aktifitas'));
-        // }
+        } elseif ($detect->isTablet()) {
+            return view('mobile.auth.register', compact('aktifitas'));
+        } else {
+            return view('desktop.auth.register', compact('aktifitas'));
+        }
     }
 
     /**
