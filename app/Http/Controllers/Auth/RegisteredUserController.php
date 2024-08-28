@@ -38,6 +38,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
@@ -59,6 +60,9 @@ class RegisteredUserController extends Controller
             $gambar->move($destinationPath, $gambarName);
             $gambarPath = 'profile/upload/' . $gambarName;
         }
+
+
+
 
         $user = User::create([
             'name' => $request->name,
