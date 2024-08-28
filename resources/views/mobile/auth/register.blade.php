@@ -67,7 +67,7 @@
                 <div class="input-style has-icon input-style-1 input-required mt-4">
                     <i class="input-icon fa fa-ruler-vertical color-theme"></i>
                     <span>Tinggi Badan (cm)</span>
-                    <x-text-input id="tinggi_badan" class="input" type="text" name="tinggi_badan" :value="old('tinggi_badan')"
+                    <x-text-input id="tinggi_badan" class="input" type="number" name="tinggi_badan" :value="old('tinggi_badan')"
                         required autocomplete="height" placeholder="Tinggi Badan" step="any" />
                     <x-input-error :messages="$errors->get('tinggi_badan')" class="mt-2" />
                 </div>
@@ -76,7 +76,7 @@
                 <div class="input-style has-icon input-style-1 input-required mt-4">
                     <i class="input-icon fa fa-weight color-theme"></i>
                     <span>Berat Badan (kg)</span>
-                    <x-text-input id="berat_badan" class="input" type="text" name="berat_badan" :value="old('berat_badan')"
+                    <x-text-input id="berat_badan" class="input" type="number" name="berat_badan" :value="old('berat_badan')"
                         required autocomplete="weight" placeholder="Berat Badan" step="any" />
                     <x-input-error :messages="$errors->get('berat_badan')" class="mt-2" />
                 </div>
