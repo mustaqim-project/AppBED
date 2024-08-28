@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Detection\MobileDetect;
-use App\Models\aktifitas\Aktifitas;
+use App\Models\aktifitas\aktifitas;
 
 class RegisteredUserController extends Controller
 {
     public function create(): View
     {
-        $aktifitas = Aktifitas::all()->pluck('nama', 'id');
+        $aktifitas = aktifitas::all()->pluck('nama', 'id');
 
         $detect = new MobileDetect();
 
