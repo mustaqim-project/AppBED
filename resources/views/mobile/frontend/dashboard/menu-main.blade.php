@@ -76,62 +76,42 @@
         </a>
     </div> --}}
 
-
-
-    <a id="nav-settings" href="settings.blade.php">
-        <i data-feather="settings" data-feather-line="1" data-feather-size="16" data-feather-color="gray2-dark"
-            data-feather-bg="gray2-fade-dark"></i>
-        <span>
-            @if (session('lang') === 'id')
-                {{ 'Pengaturan' }}
-            @else
-                {{ $translate->translate('Settings') }}
-            @endif
-        </span>
-        <i class="fa fa-circle"></i>
-    </a>
     @if (Route::has('login'))
-    <nav class="-mx-3 flex flex-1 justify-end">
-        @auth
-            <a
-                href="#"
-                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-            >
-                <i data-feather="x" data-feather-line="3" data-feather-size="16" data-feather-color="red2-dark"
-                    data-feather-bg="red2-fade-dark"></i>
-                <span>
-                    @if (session('lang') === 'id')
-                        {{ 'Keluar' }}
-                    @else
-                        {{ __('Log Out') }}
-                    @endif
-                </span>
-                <i class="fa fa-circle"></i>
-            </a>
-
-            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
-                @csrf
-            </form>
-        @else
-            <a
-                href="{{ route('login') }}"
-                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-            >
-                Log in
-            </a>
-
-            @if (Route::has('register'))
-                <a
-                    href="{{ route('register') }}"
+        <nav class="-mx-3 flex flex-1 justify-end">
+            @auth
+                <a href="#"
                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
-                >
-                    Register
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i data-feather="x" data-feather-line="3" data-feather-size="16" data-feather-color="red2-dark"
+                        data-feather-bg="red2-fade-dark"></i>
+                    <span>
+                        @if (session('lang') === 'id')
+                            {{ 'Keluar' }}
+                        @else
+                            {{ __('Log Out') }}
+                        @endif
+                    </span>
+                    <i class="fa fa-circle"></i>
                 </a>
-            @endif
-        @endauth
-    </nav>
-@endif
+
+                <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    Log in
+                </a>
+
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Register
+                    </a>
+                @endif
+            @endauth
+        </nav>
+    @endif
 
 
 
