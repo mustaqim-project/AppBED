@@ -8,13 +8,13 @@ use Detection\MobileDetect;
 Route::get('/', function () {
     $detect = new Mobile_Detect;
 
-    if ($detect->isMobile()) {
+    // if ($detect->isMobile()) {
         return view('mobile.frontend.dashboard.index');
-    } elseif ($detect->isTablet()) {
-        return view('mobile.frontend.dashboard.index');
-    } else {
-        return view('welcome');
-    }
+    // } elseif ($detect->isTablet()) {
+    //     return view('mobile.frontend.dashboard.index');
+    // } else {
+    //     return view('welcome');
+    // }
 })->middleware(\App\Http\Middleware\LanguageMiddleware::class);
 
 
