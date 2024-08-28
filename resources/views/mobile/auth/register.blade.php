@@ -12,8 +12,8 @@
 <div class="page-content">
     <div class="page-title page-title-small">
         <h2><a href="#" data-back-button><i class="fa fa-arrow-left"></i></a>Sign Up</h2>
-        <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-        data-src="{{ asset('mobile/images/logobulat.png') }}">
+        {{-- <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+        data-src="{{ asset('mobile/images/logobulat.png') }}"> --}}
     </a>
     </div>
     <div class="card header-card shape-rounded" data-card-height="150">
