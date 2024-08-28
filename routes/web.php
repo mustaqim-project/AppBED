@@ -20,10 +20,14 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('mobile.frontend.dashboard.index');
+    $detect = new Mobile_Detect;
+
+    if ($detect->isMobile() || $detect->isTablet()) {
+        return view('mobile.frontend.dashboard.index');
+    } else {
+        return view('dashboard'); // Ganti dengan view dashboard yang sesuai untuk desktop
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
 
 
 Route::middleware('auth')->group(function () {

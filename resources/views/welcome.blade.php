@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,9 @@
     <h1>{{ $translate->translate('Selamat Datang di Situs Kami') }}</h1>
     <p>{{ $translate->translate('Ini adalah deskripsi contoh.') }}</p>
 </body>
-</html>
+</html> --}}
 
-{{-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -199,4 +199,4 @@
             </div>
         </div>
     </body>
-</html> --}}
+</html>

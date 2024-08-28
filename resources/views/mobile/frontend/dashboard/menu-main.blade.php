@@ -11,28 +11,12 @@
     <a href="#" class="border-right-0">
         <i class="fa font-12 color-blue2-dark fa-cog"></i>
     </a>
-    <a href="#" class="border-right-0">
+    <a href="#" class="close-menu border-right-0">
         <i class="fa font-12 color-red2-dark fa-times"></i>
     </a>
 </div>
 
-<div class="menu-logo text-center">
-    <a href="#"><img class="rounded-circle bg-highlight" width="80" src="images/avatars/5s.png"></a>
-    <h1 class="pt-3 font-800 font-28 text-uppercase">
-        @if (session('lang') === 'id')
-            {{ 'asbed' }}
-        @else
-            {{ $translate->translate('asbed') }}
-        @endif
-    </h1>
-    <p class="font-11 mt-n2">
-        @if (session('lang') === 'id')
-            {{ 'Masukkan sedikit' }} <span class="color-highlight">{{ 'warna' }}</span> {{ 'dalam hidup Anda.' }}
-        @else
-            {{ $translate->translate('Put a little') }} <span class="color-highlight">{{ $translate->translate('color') }}</span> {{ $translate->translate('in your life.') }}
-        @endif
-    </p>
-</div>
+
 
 <div class="menu-items">
     <h5 class="text-uppercase opacity-20 font-12 pl-3">
@@ -43,7 +27,8 @@
         @endif
     </h5>
     <a id="nav-welcome" href="index.blade.php">
-        <i data-feather="home" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-dark"></i>
+        <i data-feather="home" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark"
+            data-feather-bg="blue2-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Selamat Datang' }}
@@ -61,7 +46,8 @@
         <i class="fa fa-circle"></i>
     </a>
     <a id="nav-starters" href="pages-starters-list.blade.php">
-        <i data-feather="star" data-feather-line="1" data-feather-size="18" data-feather-color="yellow1-dark" data-feather-bg="yellow1-fade-dark"></i>
+        <i data-feather="star" data-feather-line="1" data-feather-size="18" data-feather-color="yellow1-dark"
+            data-feather-bg="yellow1-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Pemula' }}
@@ -72,7 +58,8 @@
         <i class="fa fa-circle"></i>
     </a>
     <a id="nav-features" href="components.blade.php">
-        <i data-feather="heart" data-feather-line="1" data-feather-size="16" data-feather-color="red2-dark" data-feather-bg="red2-fade-dark"></i>
+        <i data-feather="heart" data-feather-line="1" data-feather-size="16" data-feather-color="red2-dark"
+            data-feather-bg="red2-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Fitur' }}
@@ -83,7 +70,8 @@
         <i class="fa fa-circle"></i>
     </a>
     <a id="nav-pages" href="pages.blade.php">
-        <i data-feather="file" data-feather-line="1" data-feather-size="16" data-feather-color="brown1-dark" data-feather-bg="brown1-fade-dark"></i>
+        <i data-feather="file" data-feather-line="1" data-feather-size="16" data-feather-color="brown1-dark"
+            data-feather-bg="brown1-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Halaman' }}
@@ -94,7 +82,8 @@
         <i class="fa fa-circle"></i>
     </a>
     <a id="nav-media" href="media.blade.php">
-        <i data-feather="image" data-feather-line="1" data-feather-size="16" data-feather-color="green1-dark" data-feather-bg="green1-fade-dark"></i>
+        <i data-feather="image" data-feather-line="1" data-feather-size="16" data-feather-color="green1-dark"
+            data-feather-bg="green1-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Media' }}
@@ -104,8 +93,11 @@
         </span>
         <i class="fa fa-circle"></i>
     </a>
+
+    {{--
     <a href="#" data-submenu="sub-contact">
-        <i data-feather="mail" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-dark"></i>
+        <i data-feather="mail" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark"
+            data-feather-bg="blue2-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Kontak' }}
@@ -150,9 +142,13 @@
             </span>
             <i class="fa fa-circle"></i>
         </a>
-    </div>
+    </div> --}}
+
+
+
     <a id="nav-settings" href="settings.blade.php">
-        <i data-feather="settings" data-feather-line="1" data-feather-size="16" data-feather-color="gray2-dark" data-feather-bg="gray2-fade-dark"></i>
+        <i data-feather="settings" data-feather-line="1" data-feather-size="16" data-feather-color="gray2-dark"
+            data-feather-bg="gray2-fade-dark"></i>
         <span>
             @if (session('lang') === 'id')
                 {{ 'Pengaturan' }}
@@ -162,17 +158,51 @@
         </span>
         <i class="fa fa-circle"></i>
     </a>
-    <a href="#" class="close-menu">
-        <i data-feather="x" data-feather-line="3" data-feather-size="16" data-feather-color="red2-dark" data-feather-bg="red2-fade-dark"></i>
-        <span>
-            @if (session('lang') === 'id')
-                {{ 'Tutup' }}
-            @else
-                {{ $translate->translate('Close') }}
+    @if (Route::has('login'))
+    <nav class="-mx-3 flex flex-1 justify-end">
+        @auth
+            <a
+                href="#"
+                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+            >
+                <i data-feather="x" data-feather-line="3" data-feather-size="16" data-feather-color="red2-dark"
+                    data-feather-bg="red2-fade-dark"></i>
+                <span>
+                    @if (session('lang') === 'id')
+                        {{ 'Keluar' }}
+                    @else
+                        {{ __('Log Out') }}
+                    @endif
+                </span>
+                <i class="fa fa-circle"></i>
+            </a>
+
+            <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a
+                href="{{ route('login') }}"
+                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+            >
+                Log in
+            </a>
+
+            @if (Route::has('register'))
+                <a
+                    href="{{ route('register') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                >
+                    Register
+                </a>
             @endif
-        </span>
-        <i class="fa fa-circle"></i>
-    </a>
+        @endauth
+    </nav>
+@endif
+
+
+
 </div>
 
 <div class="text-center pt-2">
@@ -185,7 +215,8 @@
         @if (session('lang') === 'id')
             {{ 'Hak Cipta' }} <span class="copyright-year"></span> {{ 'Enabled. Semua hak dilindungi' }}
         @else
-            {{ $translate->translate('Copyright') }} <span class="copyright-year"></span> {{ $translate->translate('Enabled. All rights reserved') }}
+            {{ $translate->translate('Copyright') }} <span class="copyright-year"></span>
+            {{ $translate->translate('Enabled. All rights reserved') }}
         @endif
     </p>
 </div>
