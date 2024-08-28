@@ -11,7 +11,7 @@ workbox.routing.registerRoute(
     new workbox.strategies.NetworkFirst()
 );
 
-//console.log('Azures Service Worker Running');
+//console.log('asbed Service Worker Running');
 
 //Learn more about Service Workers and Configurations
 //https://developers.google.com/web/tools/workbox/

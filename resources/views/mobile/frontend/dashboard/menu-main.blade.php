@@ -20,9 +20,9 @@
     <a href="#"><img class="rounded-circle bg-highlight" width="80" src="images/avatars/5s.png"></a>
     <h1 class="pt-3 font-800 font-28 text-uppercase">
         @if (session('lang') === 'id')
-            {{ 'Azures' }}
+            {{ 'asbed' }}
         @else
-            {{ $translate->translate('Azures') }}
+            {{ $translate->translate('asbed') }}
         @endif
     </h1>
     <p class="font-11 mt-n2">
