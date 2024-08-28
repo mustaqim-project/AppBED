@@ -4,26 +4,21 @@
     <div class="page-content" style="margin-top:50px;">
         <div class="page-title page-title-large">
             <h2 data-username=""></h2>
-
             @if (Route::has('login'))
-            <nav class="-mx-3 flex flex-1 justify-end">
-                @auth
-                    <!-- Jika pengguna sudah login, tampilkan gambar profil -->
-                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                       data-src="{{ asset(Auth::user()->gambar) }}">
-                    </a>
-                @else
-                    <!-- Jika pengguna belum login, tampilkan gambar default -->
-                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                       data-src="{{ asset('mobile/images/logobulat.png') }}">
-                    </a>
-                @endauth
-            </nav>
-        @endif
-
-
-
-
+                <nav class="-mx-3 flex flex-1 justify-end">
+                    @auth
+                        <!-- Jika pengguna sudah login, tampilkan gambar profil -->
+                        <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+                            data-src="{{ asset(Auth::user()->gambar) }}">
+                        </a>
+                    @else
+                        <!-- Jika pengguna belum login, tampilkan gambar default -->
+                        <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+                            data-src="{{ asset('mobile/images/logobulat.png') }}">
+                        </a>
+                    @endauth
+                </nav>
+            @endif
         </div>
         <div class="card header-card shape-rounded" data-card-height="210">
             <div class="card-overlay bg-highlight opacity-95"></div>
@@ -201,7 +196,8 @@
                         </div>
                         <div class="col-6">
                             <i class="float-left ml-3 mr-3" data-feather="book-open" data-feather-line="1"
-                                data-feather-size="35" data-feather-color="blue2-dark" data-feather-bg="blue2-fade-light">
+                                data-feather-size="35" data-feather-color="blue2-dark"
+                                data-feather-bg="blue2-fade-light">
                             </i>
                             <h5 class="color-black float-left font-13 font-500 line-height-s pb-3 mb-3">
                                 Panduan<br>Pemulihan</h5>
