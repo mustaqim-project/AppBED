@@ -11,7 +11,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('mobile/fonts/css/fontawesome-all.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
     <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
-    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('mobile/images/logobulat.png') }}">
+    <link rel="icon" href="{{ asset('mobile/images/logobulat.png') }}" type="image/png">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -44,7 +46,7 @@
         <!-- Install Prompt for Android -->
         <div id="menu-install-pwa-android" class="menu menu-box-bottom menu-box-detached rounded-l" data-menu-height="350" data-menu-effect="menu-parallax">
             <div class="boxed-text-l mt-4">
-                <img class="rounded-l mb-3" src="app/icons/icon-128x128.png" alt="img" width="90">
+                <img class="rounded-l mb-3" src="{{ asset('mobile/images/logobulat.png') }}" alt="img" width="90">
                 <h4 class="mt-3">AS-BED on your Home Screen</h4>
                 <p>Install AS-BED on your home screen, and access it just like a regular app. It really is that simple!</p>
                 <a href="#" class="pwa-install btn btn-s rounded-s shadow-l text-uppercase font-900 bg-highlight mb-2">Add to Home Screen</a><br>
@@ -56,7 +58,7 @@
         <!-- Install instructions for iOS -->
         <div id="menu-install-pwa-ios" class="menu menu-box-bottom menu-box-detached rounded-l" data-menu-height="320" data-menu-effect="menu-parallax">
             <div class="boxed-text-xl mt-4">
-                <img class="rounded-l mb-3" src="app/icons/icon-128x128.png" alt="img" width="90">
+                <img class="rounded-l mb-3" src="{{ asset('mobile/images/logobulat.png') }}" alt="img" width="90">
                 <h4 class="mt-3">AS-BED on your Home Screen</h4>
                 <p class="mb-0 pb-3">Install AS-BED on your home screen, and access it just like a regular app. Open your Safari menu and tap "Add to Home Screen".</p>
                 <div class="clear"></div>
