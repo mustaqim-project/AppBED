@@ -1,13 +1,12 @@
 <x-guest-layout>
 
     <!-- Flatpickr CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-<!-- Flatpickr JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -17,7 +16,7 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        {{-- <!-- Tanggal Lahir -->
+        <!-- Tanggal Lahir -->
         <div class="mt-4">
             <x-input-label for="tanggal_lahir" :value="__('Tanggal Lahir')" />
             <x-text-input id="tanggal_lahir" class="block mt-1 w-full" type="text" name="tanggal_lahir" :value="old('tanggal_lahir')" required autocomplete="bday" placeholder="dd-mm-yyyy" />
@@ -42,18 +41,23 @@
         <div class="mt-4">
             <x-input-label for="jenis_kelamin" :value="__('Jenis Kelamin')" />
             <select id="jenis_kelamin" name="jenis_kelamin" class="block mt-1 w-full" required>
-                <option value="L">{{ __('Laki-laki') }}</option>
-                <option value="P">{{ __('Perempuan') }}</option>
+                <option value="L" {{ old('jenis_kelamin') == 'L' ? 'selected' : '' }}>{{ __('Laki-laki') }}</option>
+                <option value="P" {{ old('jenis_kelamin') == 'P' ? 'selected' : '' }}>{{ __('Perempuan') }}</option>
             </select>
             <x-input-error :messages="$errors->get('jenis_kelamin')" class="mt-2" />
         </div>
 
-        <!-- Username -->
+        <!-- Aktifitas -->
         <div class="mt-4">
-            <x-input-label for="username" :value="__('Username')" />
-            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('username')" class="mt-2" />
-        </div> --}}
+            <x-input-label for="aktifitas_id" :value="__('Pilih Aktifitas')" />
+            <select id="aktifitas_id" name="aktifitas_id" class="block mt-1 w-full">
+                <option value="">{{ __('Pilih Aktifitas') }}</option>
+                @foreach($aktifitas as $id => $nama)
+                    <option value="{{ $id }}" {{ old('aktifitas_id') == $id ? 'selected' : '' }}>{{ $nama }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('aktifitas_id')" class="mt-2" />
+        </div>
 
         <!-- Email Address -->
         <div class="mt-4">
@@ -81,6 +85,18 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Profile Picture Upload -->
+        <div class="mt-4">
+            <x-input-label for="profile_picture" :value="__('Profile Picture')" />
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*" class="block mt-1 w-full" />
+            <x-input-error :messages="$errors->get('profile_picture')" class="mt-2" />
+        </div>
+
+        <!-- Image Preview -->
+        <div class="mt-4">
+            <img id="image_preview" src="#" alt="Image Preview" style="display:none; width:200px; height:auto;" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
@@ -93,13 +109,33 @@
     </form>
 
     <script>
-         document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             flatpickr("#tanggal_lahir", {
                 dateFormat: "d-m-Y",  // Format dd-mm-yyyy
                 altInput: true,       // Show formatted date in input
                 altFormat: "d-m-Y",   // Display format
                 allowInput: true      // Allow manual input
             });
+
+            // Handle image preview
+            const profilePictureInput = document.getElementById('profile_picture');
+            const imagePreview = document.getElementById('image_preview');
+
+            profilePictureInput.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.src = '#';
+                    imagePreview.style.display = 'none';
+                }
+            });
         });
     </script>
+
 </x-guest-layout>

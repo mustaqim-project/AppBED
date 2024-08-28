@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,6 +24,9 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'aktifitas_id',
+        'gambar',
+        'role', // Tambahkan kolom role
     ];
 
     /**
@@ -38,11 +42,40 @@ class User extends Authenticatable
     /**
      * The attributes that should be cast to native types.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
     protected $casts = [
         'tanggal_lahir' => 'date',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Get the activity that owns the user.
+     */
+    public function aktifitas()
+    {
+        return $this->belongsTo(\App\Models\Aktifitas::class, 'aktifitas_id');
+    }
+
+    public function weights()
+    {
+        return $this->hasMany(UserWeight::class);
+    }
+
+    public function dailyEntries()
+    {
+        return $this->hasMany(DailyEntry::class);
+    }
+
+    /**
+     * Check if the user has the specified role.
+     *
+     * @param string $role
+     * @return bool
+     */
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
+    }
 }

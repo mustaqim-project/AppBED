@@ -19,16 +19,8 @@ Route::get('/', function () {
 
 
 
-
-
-
-
-
-
-
-
 Route::get('/dashboard', function () {
-    return view('frontend.dashboard.index');
+    return view('mobile.frontend.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -39,6 +31,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+use App\Http\Controllers\DailyEntryController;
+use App\Http\Controllers\UserWeightController;
+
+Route::middleware('auth')->group(function () {
+    Route::get('/daily_entries/create', [DailyEntryController::class, 'create'])->name('daily_entries.create');
+    Route::post('/daily_entries', [DailyEntryController::class, 'store'])->name('daily_entries.store');
+
+    Route::get('/weights', [UserWeightController::class, 'index'])->name('weights.index');
+});
+
 
 require __DIR__.'/auth.php';
 
