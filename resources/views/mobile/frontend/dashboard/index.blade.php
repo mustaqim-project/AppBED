@@ -10,8 +10,7 @@
                 @auth
                     <!-- Jika pengguna sudah login, tampilkan gambar profil -->
                     <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                       data-src="{{ asset('profile/upload/' . Auth::user()->gambar) }}">
-                        <img src="{{ asset('profile/upload/' . Auth::user()->gambar) }}" alt="User Profile Picture" class="hidden">
+                       data-src="{{ asset(Auth::user()->gambar) }}">
                     </a>
                 @else
                     <!-- Jika pengguna belum login, tampilkan gambar default -->

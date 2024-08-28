@@ -79,11 +79,22 @@
     @if (Route::has('login'))
         <nav class="-mx-3 flex flex-1 justify-end">
             @auth
+                <a href="#" data-submenu="sub-profile" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    <i data-feather="user" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark"
+                        data-feather-bg="blue2-fade-dark"></i>
+                    <span>
+                        @if (session('lang') === 'id')
+                            {{ 'Profile' }}
+                        @else
+                            {{ $translate->translate('Profile') }}
+                        @endif
+                    </span>
+
+                </a>
                 <a href="#"
                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i data-feather="x" data-feather-line="3" data-feather-size="16" data-feather-color="red2-dark"
-                        data-feather-bg="red2-fade-dark"></i>
+                    <i class="fa fa-sign-out-alt"></i>
                     <span>
                         @if (session('lang') === 'id')
                             {{ 'Keluar' }}
@@ -91,7 +102,6 @@
                             {{ __('Log Out') }}
                         @endif
                     </span>
-                    <i class="fa fa-circle"></i>
                 </a>
 
                 <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
@@ -100,18 +110,35 @@
             @else
                 <a href="{{ route('login') }}"
                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Log in
+                    <i data-feather="sign-in" data-feather-line="1" data-feather-size="16" data-feather-color="blue2-dark"
+                        data-feather-bg="blue2-fade-dark"></i>
+                    <span>
+                        @if (session('lang') === 'id')
+                            {{ 'Masuk' }}
+                        @else
+                            {{ __('Log In') }}
+                        @endif
+                    </span>
                 </a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                        Register
+                        <i data-feather="user-plus" data-feather-line="1" data-feather-size="16"
+                            data-feather-color="blue2-dark" data-feather-bg="blue2-fade-dark"></i>
+                        <span>
+                            @if (session('lang') === 'id')
+                                {{ 'Daftar' }}
+                            @else
+                                {{ __('Register') }}
+                            @endif
+                        </span>
                     </a>
                 @endif
             @endauth
         </nav>
     @endif
+
 
 
 
@@ -128,7 +155,7 @@
             {{ 'Hak Cipta' }} <span class="copyright-year"></span> {{ 'Enabled. Semua hak dilindungi' }}
         @else
             {{ $translate->translate('Copyright') }} <span class="copyright-year"></span>
-            {{ $translate->translate('Enabled. All rights reserved') }}
+            {{ $translate->translate('MAZHUB. All rights reserved') }}
         @endif
     </p>
 </div>
