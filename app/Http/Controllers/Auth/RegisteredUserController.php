@@ -23,7 +23,7 @@ class RegisteredUserController extends Controller
         $detect = new MobileDetect();
 
         // if ($detect->isMobile()) {
-            return view('mobile.auth.register', compact('aktifitas'));
+        return view('mobile.auth.register', compact('aktifitas'));
         // } elseif ($detect->isTablet()) {
         //     return view('mobile.auth.register', compact('aktifitas'));
         // } else {
@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
-            'tanggal_lahir' => 'required', // Ubah format menjadi Y-m-d
+            'tanggal_lahir' => 'required',
             'tinggi_badan' => 'required|numeric',
             'berat_badan' => 'required|numeric',
             'jenis_kelamin' => 'required|in:L,P',
@@ -55,27 +55,29 @@ class RegisteredUserController extends Controller
         if ($request->hasFile('profile_picture')) {
             $gambar = $request->file('profile_picture');
             $gambarName = time() . '.' . $gambar->getClientOriginalExtension();
-            $gambarPath = $gambar->storeAs('profile/upload', $gambarName, 'public');
+            $destinationPath = public_path('profile/upload');
+            $gambar->move($destinationPath, $gambarName);
+            $gambarPath = 'profile/upload/' . $gambarName;
         }
 
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
-            'tanggal_lahir' => $request->tanggal_lahir, // Perbaiki variabel
+            'tanggal_lahir' => $request->tanggal_lahir,
             'tinggi_badan' => $request->tinggi_badan,
             'berat_badan' => $request->berat_badan,
             'jenis_kelamin' => $request->jenis_kelamin,
             'aktifitas_id' => $request->aktifitas_id,
             'password' => Hash::make($request->password),
             'gambar' => $gambarPath,
-            'role' => 'user', // Set default role
+            'role' => 'user',
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect()->route('dashboard'); // Perbaiki penggunaan route
+        return redirect()->route('dashboard');
     }
 }
