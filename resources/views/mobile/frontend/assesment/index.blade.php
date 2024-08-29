@@ -4,8 +4,14 @@
 <div class="page-content" style="margin-top:50px;">
     <div class="page-title page-title-large">
         @if (Route::has('login'))
-        <h2> Selamat Datang </h2>
-           <h2> {{ Auth::user()->name }}</h2>
+            @auth
+                <center>
+                    <h2>Selamat Datang</h2>
+                    <h2>{{ Auth::user()->name }}</h2>
+                </center>
+            @endauth
+        @endif
+
             {{-- <nav class="-mx-3 flex flex-1 justify-end">
                 @auth
                     <!-- Jika pengguna sudah login, tampilkan gambar profil -->
@@ -19,7 +25,6 @@
                     </a>
                 @endauth
             </nav> --}}
-        @endif
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
