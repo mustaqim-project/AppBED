@@ -3,28 +3,14 @@
 @section('content')
 <div class="page-content" style="margin-top:50px;">
     <div class="page-title page-title-large">
-        @if (Route::has('login'))
-            @auth
-                <center>
-                    <h2>Selamat Datang</h2>
-                    <h2>{{ Auth::user()->name }}</h2>
-                </center>
-            @endauth
-        @endif
 
-            {{-- <nav class="-mx-3 flex flex-1 justify-end">
-                @auth
-                    <!-- Jika pengguna sudah login, tampilkan gambar profil -->
+
+            <nav class="-mx-3 flex flex-1 justify-end">
+
                     <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                        data-src="{{ asset(Auth::user()->gambar) }}">
+                        data-src="{{ asset('mobile/images/logo.png') }}">
                     </a>
-                @else
-                    <!-- Jika pengguna belum login, tampilkan gambar default -->
-                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                        data-src="{{ asset('mobile/images/logobulat.png') }}">
-                    </a>
-                @endauth
-            </nav> --}}
+
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
