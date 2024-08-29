@@ -17,9 +17,9 @@
 
         <div class="card card-style">
             <div class="content">
-                <h3>Assesment</h3>
+                <h3>Assessment</h3>
                 <div class="instructions mt-2 mb-5">
-                    <h4>Cara Pengisian Asesmen</h4>
+                    <h4>Cara Pengisian Assessment</h4>
                     <ul>
                         <li><strong>Berat Badan:</strong> Masukkan berat badan Anda dalam satuan kilogram pada kolom yang telah disediakan. Isian ini wajib untuk melanjutkan ke pertanyaan berikutnya.</li>
                         <li><strong>Pertanyaan Pilihan Ganda:</strong> Anda akan diberikan beberapa pertanyaan terkait pola makan dan kebiasaan Anda selama tiga bulan terakhir. Jawablah setiap pertanyaan dengan memilih opsi yang paling sesuai dengan pengalaman Anda.</li>
