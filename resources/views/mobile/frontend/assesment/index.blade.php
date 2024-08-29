@@ -1,7 +1,7 @@
 @extends('mobile.frontend.layout.master')
 
 @section('content')
-    <div class="page-content" style="min-height:60vh!important">
+    <div class="page-content mt-10">
         <div class="page-title page-title-large">
             <h2 data-username=""></h2>
             @if (Route::has('login'))
@@ -23,7 +23,6 @@
         <div class="card header-card shape-rounded" data-card-height="210">
             <div class="card-overlay bg-highlight opacity-95"></div>
             <div class="card-overlay dark-mode-tint"></div>
-            <div class="card-bg preload-img" data-src="images/pictures/20s.jpg"></div>
         </div>
 
 
