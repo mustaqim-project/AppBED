@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-content" style="margin-top:50px;">
     <div class="page-title page-title-large">
-        <h2> Selamat Datang {{ asset(Auth::user()->Name) }}</h2>
+        <h2> Selamat Datang {{ asset(Auth::user()->nama) }}</h2>
         {{-- @if (Route::has('login'))
             <nav class="-mx-3 flex flex-1 justify-end">
                 @auth
