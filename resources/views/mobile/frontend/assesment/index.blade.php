@@ -5,10 +5,7 @@
     <div class="page-title page-title-large">
 
 
-            <nav class="-mx-3 flex flex-1 justify-end">
-                <img src="{{ asset('mobile/images/logo.png') }}">
 
-            </nav>
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
