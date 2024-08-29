@@ -1,29 +1,30 @@
 @extends('mobile.frontend.layout.master')
 
 @section('content')
-    <div class="page-content mt-10">
-        <div class="page-title page-title-large">
-            <h2 data-username=""></h2>
-            @if (Route::has('login'))
-                <nav class="-mx-3 flex flex-1 justify-end">
-                    @auth
-                        <!-- Jika pengguna sudah login, tampilkan gambar profil -->
-                        <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                            data-src="{{ asset(Auth::user()->gambar) }}">
-                        </a>
-                    @else
-                        <!-- Jika pengguna belum login, tampilkan gambar default -->
-                        <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                            data-src="{{ asset('mobile/images/logobulat.png') }}">
-                        </a>
-                    @endauth
-                </nav>
-            @endif
-        </div>
-        <div class="card header-card shape-rounded" data-card-height="210">
-            <div class="card-overlay bg-highlight opacity-95"></div>
-            <div class="card-overlay dark-mode-tint"></div>
-        </div>
+<div class="page-content" style="margin-top:50px;">
+    <div class="page-title page-title-large">
+        <h2 data-username=""></h2>
+        @if (Route::has('login'))
+            <nav class="-mx-3 flex flex-1 justify-end">
+                @auth
+                    <!-- Jika pengguna sudah login, tampilkan gambar profil -->
+                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+                        data-src="{{ asset(Auth::user()->gambar) }}">
+                    </a>
+                @else
+                    <!-- Jika pengguna belum login, tampilkan gambar default -->
+                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
+                        data-src="{{ asset('mobile/images/logobulat.png') }}">
+                    </a>
+                @endauth
+            </nav>
+        @endif
+    </div>
+    <div class="card header-card shape-rounded" data-card-height="210">
+        <div class="card-overlay bg-highlight opacity-95"></div>
+        <div class="card-overlay dark-mode-tint"></div>
+        <div class="card-bg preload-img" data-src="{{ asset('mobile/images/logobulat.png') }}"></div>
+    </div>
 
 
 
