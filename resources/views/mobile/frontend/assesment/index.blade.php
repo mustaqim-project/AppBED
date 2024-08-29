@@ -3,8 +3,8 @@
 @section('content')
 <div class="page-content" style="margin-top:50px;">
     <div class="page-title page-title-large">
-        <h2 data-username=""></h2>
-        @if (Route::has('login'))
+        <h2> Selamat Datang {{ asset(Auth::user()->Name) }}</h2>
+        {{-- @if (Route::has('login'))
             <nav class="-mx-3 flex flex-1 justify-end">
                 @auth
                     <!-- Jika pengguna sudah login, tampilkan gambar profil -->
@@ -18,7 +18,7 @@
                     </a>
                 @endauth
             </nav>
-        @endif
+        @endif --}}
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
