@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KaloriMakanan;
 use App\Models\DailyEntry;
 use App\Models\UserWeight;
 use Illuminate\Support\Facades\Auth;
@@ -50,9 +51,15 @@ class DailyEntryController extends Controller
         ]);
 
         // Interpretasi hasil
-        $result = $this->interpretResult($request);
+        $interpretResult = $this->interpretResult($request);
 
-        return view('daily_entry.result', compact('result'));
+        // Lakukan perhitungan BMI, BMR, TDEE dan rekomendasi kalori
+        $calculationResult = $this->calculate($request);
+
+        // Gabungkan hasil interpretasi dan hasil perhitungan
+        $result = array_merge(['interpret_result' => $interpretResult], $calculationResult);
+
+        return view('daily_entry.result', $result);
     }
 
     private function interpretResult(Request $request)
@@ -76,21 +83,19 @@ class DailyEntryController extends Controller
         return 'Beresiko BED';
     }
 
-
-
     public function calculate(Request $request)
     {
         $user = auth()->user();
 
         $heightInMeters = $user->tinggi_badan / 100;
-        $weightInKg = $user->berat_badan;
+        $weightInKg = $request->input('weight');
         $age = \Carbon\Carbon::parse($user->tanggal_lahir)->age;
 
         // BMI Calculation
         $bmi = $weightInKg / ($heightInMeters * $heightInMeters);
 
         // BMR Calculation using Harris-Benedict equation
-        if ($user->jenis_kelamin === 'Pria') {
+        if ($user->jenis_kelamin === 'L') {
             $bmr = 88.362 + (13.397 * $weightInKg) + (4.799 * $user->tinggi_badan) - (5.677 * $age);
         } else {
             $bmr = 447.593 + (9.247 * $weightInKg) + (3.098 * $user->tinggi_badan) - (4.330 * $age);
@@ -103,6 +108,12 @@ class DailyEntryController extends Controller
         // Get Recommended Calorie Intake from KaloriMakanan table
         $recommendedCalories = KaloriMakanan::where('kalori_per_gram', '<=', $tdee)->get();
 
-        return view('health.result', compact('bmi', 'bmr', 'tdee', 'recommendedCalories'));
+        // Return results as an array
+        return [
+            'bmi' => $bmi,
+            'bmr' => $bmr,
+            'tdee' => $tdee,
+            'recommendedCalories' => $recommendedCalories
+        ];
     }
 }
