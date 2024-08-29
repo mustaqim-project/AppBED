@@ -6,11 +6,9 @@
 
 
             <nav class="-mx-3 flex flex-1 justify-end">
+                <img src="{{ asset('mobile/images/logo.png') }}">
 
-                    <a href="#" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img"
-                        data-src="{{ asset('mobile/images/logo.png') }}">
-                    </a>
-
+            </nav>
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
