@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Detection\MobileDetect;
 
+use App\Http\Controllers\DailyEntryController;
+use App\Http\Controllers\UserWeightController;
+
 
 Route::get('/', function () {
     $detect = new Mobile_Detect;
@@ -37,15 +40,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-use App\Http\Controllers\DailyEntryController;
-use App\Http\Controllers\UserWeightController;
+// Route::middleware('auth')->group(function () {
+//     Route::get('/daily_entries/create', [DailyEntryController::class, 'create'])->name('daily_entries.create');
+//     Route::post('/daily_entries', [DailyEntryController::class, 'store'])->name('daily_entries.store');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/daily_entries/create', [DailyEntryController::class, 'create'])->name('daily_entries.create');
-    Route::post('/daily_entries', [DailyEntryController::class, 'store'])->name('daily_entries.store');
-
-    Route::get('/weights', [UserWeightController::class, 'index'])->name('weights.index');
-});
+//     Route::get('/weights', [UserWeightController::class, 'index'])->name('weights.index');
+// });
 
 
 require __DIR__.'/auth.php';

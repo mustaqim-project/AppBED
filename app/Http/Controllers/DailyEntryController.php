@@ -116,8 +116,8 @@ class DailyEntryController extends Controller
         return [
             'bb' => $request->input('weight'),
             'bmi' => $bmi,
-            'bmrBase' => $bmrBase,
-            'bmrCorrected' => $bmrCorrected,
+            'bmrBase' => round($bmrBase),
+            'bmrCorrected' => round($bmrCorrected),
             'totalCaloriesRounded' => round($bmrCorrected),
             'bbIdeal' => $this->calculateIdealBodyWeight($user->tinggi_badan),
             // 'recommendedCalories' => $recommendedCalories
