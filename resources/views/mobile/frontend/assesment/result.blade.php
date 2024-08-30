@@ -164,7 +164,7 @@
                     </div>
                     <div class="col-6">
                         <a href="#"
-                            class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">
+                            class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-xl border-highlight color-highlight">
                             Hubungi Ahli
                         </a>
                     </div>
