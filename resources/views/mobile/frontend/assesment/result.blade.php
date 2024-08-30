@@ -159,13 +159,13 @@
                     <div class="col-6">
                         <a href="#"
                             class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">
-                            Mulai Pemulihan
+                            Mulai<br>Pemulihan
                         </a>
                     </div>
                     <div class="col-6">
                         <a href="#"
                             class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-xl border-highlight color-highlight">
-                            Hubungi Ahli
+                            Hubungi<br>Ahli
                         </a>
                     </div>
                 </div>
