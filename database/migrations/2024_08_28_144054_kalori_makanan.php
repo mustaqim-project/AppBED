@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('kalori_makanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_makanan');
-            $table->integer('kalori_per_gram'); // jumlah kalori per gram makanan
+            $table->string('golongan'); // Golongan makanan (misalnya: "Karbohidrat", "Protein Hewani", dsb.)
+            $table->string('satuan'); // Satuan ukuran rumah tangga (misalnya: "bh", "gls", "sdm", dsb.)
+            $table->integer('berat'); // Berat dalam gram untuk satuan ukuran rumah tangga
+            $table->integer('kalori_per_satuan'); // Jumlah kalori per satuan penukar
+            $table->integer('kalori_per_gram'); // Jumlah kalori per gram makanan
+            $table->integer('protein_per_satuan'); // Kandungan protein per satuan penukar (dalam gram)
+            $table->integer('lemak_per_satuan'); // Kandungan lemak per satuan penukar (dalam gram)
+            $table->integer('karbohidrat_per_satuan'); // Kandungan karbohidrat per satuan penukar (dalam gram)
             $table->timestamps();
         });
 

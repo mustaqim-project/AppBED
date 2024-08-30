@@ -37,7 +37,7 @@
                         <i class="input-icon fa fa-user"></i>
                         <span class="color-highlight">Berat Badan(kg):</span>
                         <em>(required)</em>
-                        <input class="form-control" type="number" placeholder="" name="berat_badan" required>
+                        <input class="form-control" type="number" placeholder="" name="weight" required>
                     </div>
 
                     <!-- Pertanyaan 1 -->
