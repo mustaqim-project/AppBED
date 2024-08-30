@@ -118,6 +118,21 @@
                             <li>Perhatikan pola makan dan cobalah untuk tidak makan berlebihan.</li>
                             <li>Ikuti saran diet seimbang dengan porsi makan yang teratur.</li>
                             <li>Jika diperlukan, pertimbangkan untuk berbicara dengan seorang konselor.</li>
+                            <div class="content mt-0">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="#"
+                                            class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">
+                                            @if (session('lang') === 'id')
+                                                {{ 'Hubungi Ahli' }}
+                                            @else
+                                                {{ $translate->translate('Hubungi Ahli') }}
+                                            @endif
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                         @else
                             <li>Teruskan pola makan sehat dan gaya hidup aktif.</li>
                             <li>Pastikan asupan kalori sesuai dengan kebutuhan tubuh Anda.</li>
