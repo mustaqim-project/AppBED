@@ -78,31 +78,6 @@
             </div>
         </div>
 
-        <div class="content mt-0">
-            <div class="row">
-                <div class="col-6">
-                    <a href="#" class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">
-                        @if (session('lang') === 'id')
-                            {{ 'Mulai Pemulihan' }}
-                        @else
-                            {{ $translate->translate('Mulai Pemulihan') }}
-                        @endif
-                    </a>
-                </div>
-                <div class="col-6">
-                    <a href="#"
-                        class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">
-                        @if (session('lang') === 'id')
-                            {{ 'Hubungi Ahli' }}
-                        @else
-                            {{ $translate->translate('Hubungi Ahli') }}
-                        @endif
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
 
 
         <div class="card card-style">
@@ -134,7 +109,8 @@
                         <div>
                             <h5 class="font-16 font-600">Perhatikan Pola Makan</h5>
                             <p>
-                                Cobalah untuk tidak makan berlebihan dan ikuti diet seimbang dengan porsi makan yang teratur.
+                                Cobalah untuk tidak makan berlebihan dan ikuti diet seimbang dengan porsi makan yang
+                                teratur.
                             </p>
                         </div>
                     </div>
@@ -160,67 +136,51 @@
         </div>
 
         @if ($result == 'Mengalami BED')
-        <div class="card card-style text-center">
-            <div class="content pb-2">
-                <h1>
-                    <i data-feather="heart" data-feather-line="1" data-feather-size="55" data-feather-color="red2-dark"
-                        data-feather-bg="red2-fade-dark">
-                    </i>
-                </h1>
-                <h3 class="font-700 mt-2">Dukungan Penuh</h3>
-                <p class="font-12 mt-n1 color-highlight mb-3">Kami Ada untuk Anda</p>
-                <p class="boxed-text-xl">
-                    Dapatkan dukungan dan layanan kesehatan
-                </p>
-                <a href="#"
-                    class="btn btn-center-xl btn-m text-uppercase font-900 bg-highlight rounded-sm shadow-l">Hubungi Sekarang</a>
-            </div>
-        </div>
-        @elseif ($result == 'Beresiko BED')
-
-        <div class="content mt-0">
-            <div class="row">
-                <div class="col-6">
-                    <a href="#" class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">
-                        @if (session('lang') === 'id')
-                            {{ 'Mulai Pemulihan' }}
-                        @else
-                            {{ $translate->translate('Mulai Pemulihan') }}
-                        @endif
-                    </a>
-                </div>
-                <div class="col-6">
+            <div class="card card-style text-center">
+                <div class="content pb-2">
+                    <h1>
+                        <i data-feather="heart" data-feather-line="1" data-feather-size="55" data-feather-color="red2-dark"
+                            data-feather-bg="red2-fade-dark">
+                        </i>
+                    </h1>
+                    <h3 class="font-700 mt-2">Dukungan Penuh</h3>
+                    <p class="font-12 mt-n1 color-highlight mb-3">Kami Ada untuk Anda</p>
+                    <p class="boxed-text-xl">
+                        Dapatkan dukungan dan layanan kesehatan
+                    </p>
                     <a href="#"
-                        class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">
-                        @if (session('lang') === 'id')
-                            {{ 'Hubungi Ahli' }}
-                        @else
-                            {{ $translate->translate('Hubungi Ahli') }}
-                        @endif
-                    </a>
+                        class="btn btn-center-xl btn-m text-uppercase font-900 bg-highlight rounded-sm shadow-l">Hubungi
+                        Sekarang</a>
                 </div>
             </div>
-        </div>
-
+        @elseif ($result == 'Beresiko BED')
+            <div class="content mt-0">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#"
+                            class="btn btn-full btn-m rounded-s text-uppercase font-900 shadow-xl bg-highlight">
+                            Mulai Pemulihan
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="#"
+                            class="btn btn-full btn-border btn-m rounded-s text-uppercase font-900 shadow-l border-highlight color-highlight">
+                            Hubungi Ahli
+                        </a>
+                    </div>
+                </div>
+            </div>
         @else
-               <!-- Homepage Slider-->
-               <div class="single-slider-boxed text-center owl-no-dots owl-carousel">
+            <!-- Homepage Slider-->
+            <div class="single-slider-boxed text-center owl-no-dots owl-carousel">
                 <div class="card rounded-l shadow-l" data-card-height="320">
                     <div class="card-bottom">
                         <h1 class="font-24 font-700">
-
-                            @if (session('lang') === 'id')
-                                {{ 'Kenali Binge Eating Disorder' }}
-                            @else
-                                {{ $translate->translate('Binge Eating Disorder') }}
-                            @endif
+                            Kenali Binge Eating Disorder
                         </h1>
                         <p class="boxed-text-xl">
-                            @if (session('lang') === 'id')
-                                {{ 'Pelajari tentang Binge Eating Disorder, bagaimana mengenali gejalanya, dan cara mengatasinya dengan bijak.' }}
-                            @else
-                                {{ $translate->translate('Pelajari tentang Binge Eating Disorder, bagaimana mengenali gejalanya, dan cara mengatasinya dengan bijak.') }}
-                            @endif
+                            Pelajari tentang Binge Eating Disorder, bagaimana mengenali gejalanya, dan cara mengatasinya
+                            dengan bijak.
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
@@ -231,18 +191,11 @@
                 <div class="card rounded-l shadow-l" data-card-height="320">
                     <div class="card-bottom">
                         <h1 class="font-24 font-700">
-                            @if (session('lang') === 'id')
-                                {{ 'Kisah Pemulihan' }}
-                            @else
-                                {{ $translate->translate('Kisah Pemulihan') }}
-                            @endif
+                            Kisah Pemulihan
                         </h1>
                         <p class="boxed-text-xl">
-                            @if (session('lang') === 'id')
-                                {{ 'Baca cerita inspiratif dari mereka yang berhasil mengatasi Binge Eating Disorder dan menemukan keseimbangan hidup.' }}
-                            @else
-                                {{ $translate->translate('Baca cerita inspiratif dari mereka yang berhasil mengatasi Binge Eating Disorder dan menemukan keseimbangan hidup.') }}
-                            @endif
+                            Baca cerita inspiratif dari mereka yang berhasil mengatasi Binge Eating Disorder dan menemukan
+                            keseimbangan hidup.
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
@@ -253,18 +206,10 @@
                 <div class="card rounded-l shadow-l" data-card-height="320">
                     <div class="card-bottom">
                         <h1 class="font-24 font-700">
-                            @if (session('lang') === 'id')
-                                {{ 'Dukungan dan Bantuan' }}
-                            @else
-                                {{ $translate->translate('Dukungan dan Bantuan') }}
-                            @endif
+                            Dukungan dan Bantuan
                         </h1>
                         <p class="boxed-text-xl">
-                            @if (session('lang') === 'id')
-                                {{ 'Temukan sumber daya dan dukungan yang tersedia untuk membantu Anda atau orang yang Anda cintai.' }}
-                            @else
-                                {{ $translate->translate('Temukan sumber daya dan dukungan yang tersedia untuk membantu Anda atau orang yang Anda cintai.') }}
-                            @endif
+                            Temukan sumber daya dan dukungan yang tersedia untuk membantu Anda atau orang yang Anda cintai.
                         </p>
                     </div>
                     <div class="card-overlay bg-gradient-fade"></div>
@@ -273,6 +218,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+
 
 
     </div>
