@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-content" style="margin-top:50px;">
         <div class="page-title page-title-small">
-            <h2><a href="{{ route('dashboard') }}" data-back-button><i class="fa fa-arrow-left"></i></a> Hasil Assessment</h2>
+            <h2><a href="/" data-back-button><i class="fa fa-arrow-left"></i></a> Hasil Assessment</h2>
         </div>
 
         <div class="card header-card shape-rounded" data-card-height="150">
